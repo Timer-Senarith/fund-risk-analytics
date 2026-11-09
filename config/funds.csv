@@ -1,19 +1,19 @@
-Unnamed: 0,ticker,name,firm,active_passive,category,benchmark,expense_ratio,morningstar_rating
-0,FCNTX,Fidelity Contrafund,Fidelity,active,Large Growth,IWF,0.0074,5.0
-1,FMAGX,Fidelity Magellan,Fidelity,active,Large Growth,IWF,0.0064,2.0
-2,FBGRX,Fidelity Blue Chip Growth,Fidelity,active,Large Growth,IWF,0.0072,5.0
-3,FEQIX,Fidelity Equity-Income,Fidelity,active,Large Value,IWD,0.0052,4.0
-4,FLPSX,Fidelity Low-Priced Stock,Fidelity,active,Mid-Cap Value,IWR,0.0059,4.0
-5,VWELX,Vanguard Wellington Inv,Wellington,active,Moderate Allocation,AOR,0.0024,4.0
-6,VWNDX,Vanguard Windsor Investor Shares,Wellington,active,Large Value,IWD,0.0029,3.0
-7,VDIGX,Vanguard Dividend Growth Inv,Wellington,active,Large Blend,SPY,0.002,2.0
-8,AGTHX,American Funds Growth Fd of Amer A,Capital Group,active,Large Growth,IWF,0.0059,3.0
-9,TRBCX,T. Rowe Price Blue Chip Growth,T. Rowe Price,active,Large Growth,IWF,0.006999999999999999,3.0
-10,DODGX,Dodge & Cox Stock I,Dodge & Cox,active,Large Value,IWD,0.0051,3.0
-11,PRBLX,Parnassus Core Equity Investor,Parnassus,active,Large Blend,SPY,0.008100000000000001,3.0
-12,SPY,State Street SPDR S&P 500 ETF Trust,State Street,passive,Large Blend,,0.000945,
-13,FXAIX,Fidelity 500 Index,Fidelity,passive,Large Blend,,0.00015,4.0
-14,IWF,iShares Russell 1000 Growth ETF,BlackRock,passive,Large Growth,,0.0018,
-15,IWD,iShares Russell 1000 Value ETF,BlackRock,passive,Large Value,,0.0018,
-16,IWR,iShares Russell Mid-Cap ETF,BlackRock,passive,Mid-Cap Blend,,0.0018,
-17,AOR,iShares Core 60/40 Balanced Allocation ETF,BlackRock,passive,Moderate Allocation,,0.0015,
+ticker,name,firm,active_passive,category,benchmark,expense_ratio,morningstar_rating
+FCNTX,Fidelity Contrafund,Fidelity,active,Large Growth,IWF,0.0074,5.0
+FMAGX,Fidelity Magellan,Fidelity,active,Large Growth,IWF,0.0064,2.0
+FBGRX,Fidelity Blue Chip Growth,Fidelity,active,Large Growth,IWF,0.0072,5.0
+FEQIX,Fidelity Equity-Income,Fidelity,active,Large Value,IWD,0.0052,4.0
+FLPSX,Fidelity Low-Priced Stock,Fidelity,active,Mid-Cap Value,IWR,0.0059,4.0
+VWELX,Vanguard Wellington Inv,Wellington,active,Moderate Allocation,AOR,0.0024,4.0
+VWNDX,Vanguard Windsor Investor Shares,Wellington,active,Large Value,IWD,0.0029,3.0
+VDIGX,Vanguard Dividend Growth Inv,Wellington,active,Large Blend,SPY,0.002,2.0
+AGTHX,American Funds Growth Fd of Amer A,Capital Group,active,Large Growth,IWF,0.0059,3.0
+TRBCX,T. Rowe Price Blue Chip Growth,T. Rowe Price,active,Large Growth,IWF,0.007,3.0
+DODGX,Dodge & Cox Stock I,Dodge & Cox,active,Large Value,IWD,0.0051,3.0
+PRBLX,Parnassus Core Equity Investor,Parnassus,active,Large Blend,SPY,0.0081,3.0
+SPY,State Street SPDR S&P 500 ETF Trust,State Street,passive,Large Blend,,0.000945,
+FXAIX,Fidelity 500 Index,Fidelity,passive,Large Blend,,0.00015,4.0
+IWF,iShares Russell 1000 Growth ETF,BlackRock,passive,Large Growth,,0.0018,
+IWD,iShares Russell 1000 Value ETF,BlackRock,passive,Large Value,,0.0018,
+IWR,iShares Russell Mid-Cap ETF,BlackRock,passive,Mid-Cap Blend,,0.0018,
+AOR,iShares Core 60/40 Balanced Allocation ETF,BlackRock,passive,Moderate Allocation,,0.0015,
