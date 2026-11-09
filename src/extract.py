@@ -35,6 +35,14 @@ def download_factors(start=START_DATE):
     factors["date"] = factors["date"].dt.to_timestamp()   # NEW: Period → Timestamp, matches prices
     return factors
 
+def download_rates(start=START_DATE):
+    """Download the 3-month T-bill rate from FRED as a daily decimal."""
+    rates = pdr.DataReader("DTB3", "fred", start=start)
+    rates = rates.dropna()
+    rates["rf_daily"] = rates["DTB3"] / 100 / 252
+    rates = rates.reset_index().rename(columns={"DATE": "date"})
+    return rates
+
 
 if __name__ == "__main__":
     funds = pd.read_csv(ROOT / "config" / "funds.csv")
@@ -46,3 +54,7 @@ if __name__ == "__main__":
     factors = download_factors()
     factors.to_csv(ROOT / "data" / "raw" / "factors.csv", index=False)
     print("Saved", len(factors), "factor rows, ending", factors["date"].max().date())
+
+    rates = download_rates()
+    rates.to_csv(ROOT / "data" / "raw" / "rates.csv", index=False)
+    print("Saved", len(rates), "rate rows")
