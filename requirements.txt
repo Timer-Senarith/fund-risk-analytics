@@ -14,6 +14,7 @@ cffi==2.1.1
 charset-normalizer==3.5.2
 comm==0.2.3
 contourpy==1.4.0
+cryptography==50.0.2
 curl_cffi==0.17.0
 cycler==0.12.1
 debugpy==1.8.22
@@ -71,6 +72,8 @@ notebook_shim==0.2.4
 numpy==2.5.4
 packaging==26.3
 pandas==3.1.0
+pandas-datareader==0.11.1
+pandas-stubs==3.1.0.261029
 pandocfilters==1.5.1
 parso==0.8.7
 patsy==1.0.3
@@ -81,8 +84,10 @@ platformdirs==4.14.3
 pluggy==1.7.0
 prometheus_client==0.26.0
 prompt_toolkit==3.0.53
-protobuf==7.36.2
+protobuf==6.33.6
 psutil==7.2.2
+psycopg==3.3.8
+psycopg-binary==3.3.8
 psycopg2-binary==2.9.13
 ptyprocess==0.7.0
 pure_eval==0.2.4
@@ -104,13 +109,17 @@ rfc3987-syntax==1.1.0
 rpds-py==2026.9.1
 scipy==1.18.1
 Send2Trash==2.1.0
+setuptools==84.2.1
 six==1.17.0
+snowflake-connector-python==5.2.0
+snowflake-sqlalchemy==2.1.0
 soupsieve==3.0.4
 SQLAlchemy==2.1.6
 stack-data==0.6.3
 statsmodels==0.15.0
 terminado==0.18.1
 tinycss2==1.5.1
+tomlkit==0.15.2
 tornado==6.6
 traitlets==5.16.1
 typing_extensions==4.16.0
