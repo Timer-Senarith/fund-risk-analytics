@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 ROOT = Path(__file__).resolve().parents[1]
+pd.set_option("display.width", 200)
+pd.set_option("display.max_columns", None)
 
 # Step 1. get the returns table (dates down, funds across)
 def load_returns(engine):
@@ -46,6 +48,27 @@ def basic_metrics(returns, rf):
         "sharpe": sharpe,
     })
 
+def load_benchmarks(engine):
+    """Each active fund and its benchmark, from dim_fund."""
+    funds = pd.read_sql("SELECT ticker, benchmark FROM dim_fund WHERE active_passive = 'active'", engine)
+    return dict(zip(funds["ticker"], funds["benchmark"]))
+
+
+def relative_metrics(returns, benchmarks):
+    """Beta, tracking error and information ratio vs each fund's benchmark."""
+    rows = {}
+    for fund, bench in benchmarks.items():
+        f, b = returns[fund], returns[bench]
+        gap = f - b                                        # daily return vs benchmark
+        tracking_error = gap.std() * 252 ** 0.5
+        rows[fund] = {
+            "benchmark": bench,
+            "beta": f.cov(b) / b.var(),
+            "tracking_error": tracking_error,
+            "info_ratio": gap.mean() * 252 / tracking_error,
+
+        }
+    return pd.DataFrame.from_dict(rows, orient="index")
 
 if __name__ == "__main__":
     load_dotenv(ROOT / ".env")
@@ -54,10 +77,18 @@ if __name__ == "__main__":
     returns = load_returns(engine)
     rf = load_rf(engine, returns.index)
     metrics = basic_metrics(returns, rf)
+    benchmarks = load_benchmarks(engine)
+    metrics = metrics.join(relative_metrics(returns, benchmarks))
 
     show = metrics.copy()
     for col in ["total_return", "cagr", "volatility", "max_drawdown"]:
         show[col] = show[col].map(lambda x: f"{x:.1%}")
     show["sharpe"] = show["sharpe"].round(2)
+    show["tracking_error"] = show["tracking_error"].map(lambda x: "" if pd.isna(x) else f"{x:.1%}")
+    show[["beta", "info_ratio"]] = show[["beta", "info_ratio"]].round(2)
     print(show.sort_values("sharpe", ascending=False))
+
+    metrics.index.name = "ticker"
+    metrics.reset_index().to_sql("fund_metrics", engine, if_exists="replace", index=False)
+    print("Saved fund_metrics to Neon:", len(metrics), "rows")
 
